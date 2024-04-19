@@ -1,4 +1,4 @@
-import { jwtVerify } from "jose";
+import { decodeJwt, jwtVerify } from "jose";
 import { secret } from "./utils.js";
 
 const responseTimeMiddleware = async (ctx, next) => {
@@ -53,6 +53,7 @@ const authMiddleware = async (ctx, next) => {
   }
 
   try {
+    ctx.state.user = decodeJwt(token);
     await jwtVerify(token, secret, {
       algorithms: ["HS256"],
     });
