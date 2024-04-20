@@ -8,6 +8,8 @@
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:migrate": "knex migrate:make",
+    "seed:make": "knex seed:make",
+    "seed:run": "knex seed:run",
     "db:push": "knex migrate:up",
     "db:drop": "knex migrate:down"
   },
@@ -22,9 +24,11 @@
     "knex": "^3.1.0",
     "koa": "^2.15.3",
     "koa-jwt": "^4.0.4",
+    "koa-morgan": "^1.0.1",
     "nanoid": "^5.0.7",
     "oslo": "^1.2.0",
     "pg": "^8.11.5",
+    "pino": "^8.20.0",
     "pino-pretty": "^11.0.0"
   },
   "devDependencies": {
